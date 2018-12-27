@@ -4,6 +4,7 @@ interface HashTable {
     Integer find(String key);
     void add(String key);
     void delete(String key);
+    void show();
     class Entries {
         private String Key;
         private Integer Value;

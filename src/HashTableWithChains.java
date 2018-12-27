@@ -24,6 +24,9 @@ public class HashTableWithChains implements HashTable {
             hashTable.put(key, entries);
         } else {
             entries = hashTable.get(key);
+            if(entries.stream().anyMatch(e -> e.getKey().equals(key))){
+                return;
+            }
             entries.add(entry);
         }
     }
@@ -38,6 +41,7 @@ public class HashTableWithChains implements HashTable {
         }
     }
 
+    @Override
     public void show() {
         for (List<Entries> entries : hashTable.values()) {
             for (Entries entry : entries) {
